@@ -21,12 +21,12 @@
              <Run FontSize="26"  FontWeight="Bold"  >MARATHON SKILLS 2020</Run>
         </TextBlock>
         <Button x:Name="btnBack" Style="{DynamicResource base_button}" Width="80" Height="30" HorizontalAlignment="Left" Grid.Row="0" Margin="10,5,5,5" Content="Назад" Click="BtnBack_Click" />
-        <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontFamily="Arial" FontWeight="Bold" Foreground="#FFB4B4B4">
+        <TextBlock Grid.Row="1" Style="{DynamicResource header_gray_text_block}">
             Форма авторизации
         </TextBlock>
         <StackPanel  Grid.Row="2" VerticalAlignment="Center">
-            <TextBlock FontSize="14"  HorizontalAlignment="Center"  Text="Пожалуйста, авторизуйтесь в системе, используя ваш адрес электронной почты " Foreground="#FF505050"/>
-            <TextBlock FontSize="14" HorizontalAlignment="Center"  Text="и пароль." Foreground="#FF505050"/>
+            <TextBlock FontSize="14"  HorizontalAlignment="Center"  Text="Пожалуйста, авторизуйтесь в системе, используя ваш адрес электронной почты " Foreground="{DynamicResource dark_grey}"/>
+            <TextBlock FontSize="14" HorizontalAlignment="Center"  Text="и пароль." Foreground="{DynamicResource dark_grey}"/>
         </StackPanel>
 
         <Grid Grid.Row="3">
@@ -63,6 +63,7 @@
 
             </Button>
         </StackPanel>
+
 
     </Grid>
 </Page>

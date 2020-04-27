@@ -16,28 +16,26 @@ using System.Windows.Shapes;
 namespace WpfApp1.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AdmininstratorMenuPage.xaml
+    /// Логика взаимодействия для ThankSponsorPage.xaml
     /// </summary>
-    public partial class AdmininstratorMenuPage : Page
+    public partial class ThankSponsorPage : Page
     {
-        public AdmininstratorMenuPage()
+        public ThankSponsorPage()
         {
             InitializeComponent();
         }
 
-        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        public ThankSponsorPage(string runnerName, string charityName, string summa)
         {
-            NavigationService.Navigate(new Uri("Pages/MainPage.xaml", UriKind.Relative));
+            InitializeComponent();
+            tbSumma.Text = summa;
+            tbRunnerName.Text = runnerName;
+            tbCharityName.Text = charityName;
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
-        }
-
-        private void BtnCharityList_Click(object sender, RoutedEventArgs e)
-        {
-
+            NavigationService.Navigate(new Pages.MainPage());
         }
     }
 }

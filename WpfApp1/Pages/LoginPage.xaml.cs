@@ -16,6 +16,8 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.Sql;
+using WpfApp1.Models;
+using System.Data.Entity;
 
 namespace WpfApp1.Pages
 {
@@ -39,6 +41,41 @@ namespace WpfApp1.Pages
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
+            using (MarathonSkills2020Entities db = new MarathonSkills2020Entities())
+            {
+                User user = db.User.FirstOrDefault(u => (u.Email == tbEmail.Text) && (u.Password == tbPassword.Password));
+                if (user != null)
+                {
+                    if (user.Password == tbPassword.Password)
+                    {
+                        char roleId = Convert.ToChar(user.RoleId);
+                        switch (roleId)
+                        {
+                            case 'R':
+                                {
+                                    NavigationService.Navigate(new Uri("Pages/RunnerMenuPage.xaml", UriKind.Relative));
+
+                                    break;
+                                }
+                            case 'A':
+                                {
+                                    NavigationService.Navigate(new Uri("Pages/AdministratorMenuPage.xaml", UriKind.Relative));
+
+                                    break;
+                                }
+                            case 'C':
+                                {
+                                    NavigationService.Navigate(new Uri("Pages/CoordinatorMenuPage.xaml", UriKind.Relative));
+                                    break;
+                                }
+                        }
+                    }
+                    else
+                        MessageBox.Show("Не верный логин или пароль");
+                }
+                else
+                    MessageBox.Show("Не верный логин или пароль");
+            }
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
                 sqlConnection.Open();
